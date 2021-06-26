@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:id="@+id/llnEmptyState">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nenhuma tarefa encontrada!"
+        android:fontFamily="@font/amaranth_bold"
+        android:textColor="@color/purple_200"
+        android:textSize="36sp"
+        android:padding="10dp"
+        android:textAlignment="center"
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/back_organize" />
+
+    <ProgressBar
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/progLogando"
+        android:indeterminateTint="@color/purple_200"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Procurando tarefas..."
+        android:fontFamily="@font/amaranth_bold"
+        android:textColor="@color/purple_500"
+        android:id="@+id/txtLogando"
+        />
+
+</LinearLayout>
