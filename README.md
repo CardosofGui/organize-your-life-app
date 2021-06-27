@@ -1,7 +1,7 @@
 # Organize Your Life
-<p>O aplicativo Organize Your Life é um aplicativo to-do-list com o propósito do usuario armazenar suas tarefas e organizar o seu dia-a-dia para obter uma maior produtividade.
-<p>O projeto foi proposto no Santander Bootcamp | Mobile Developer como uma atividade onde tivemos um auxilio inicial de como desenvolve-lo e logo após tivemos que recriar com uma versão de nossa autoria.
-
+<p>O aplicativo se chama Organize Your Life e é um aplicativo to do list com o propósito do usuário armazenar suas tarefas e organizar o seu dia a dia para melhorar a gestão de seu tempo.
+<p>Tive o auxilio do Desenvolvedor Android Ezequiel Messore para desenvolver esse aplicativo com o objetivo de recriar uma versão de minha autoria.
+    
 ### Funcionalidades
 * Sistema de cadastro e login de usuarios;
 * Criação de tarefas, onde é solicitado: Titulo, Descrição, Data e Hora;
