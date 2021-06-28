@@ -9,4 +9,5 @@ class TaskUseCase(private val taskDataRepository: TaskDataRepository) {
     fun insertTaskImplementation(task : TaskInfo) = taskDataRepository.insertTask(task)
     fun updateTaskImplementation(task : TaskInfo) = taskDataRepository.updateTask(task)
     fun deleteTaskImplementation(index : Int) = taskDataRepository.deleteTask(index)
+    fun tryConnectionApi() = taskDataRepository.tryConnectionApi()
 }

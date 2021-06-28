@@ -48,6 +48,6 @@ interface Endpoint {
         @Field("idUser") idUser : String
     ) : Call<Int>
 
-    @GET("api/user")
-    fun tryConnection() : Call<Int>
+    @GET("user/tryConnection")
+    fun tryConnection() : Call<Int?>
 }

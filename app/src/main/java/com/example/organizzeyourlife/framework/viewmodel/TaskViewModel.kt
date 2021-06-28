@@ -1,23 +1,13 @@
 package com.example.organizzeyourlife.framework.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.organizzeyourlife.framework.api.Endpoint
-import com.example.organizzeyourlife.framework.api.RetrofitUtils
-import com.example.organizzeyourlife.data.TaskListData.findById
-import com.example.organizzeyourlife.extensions.formatStringDatePost
 import com.example.organizzeyourlife.domain.Task
-import com.example.organizzeyourlife.data.TaskActions
 import com.example.organizzeyourlife.data.TaskDataRepository
 import com.example.organizzeyourlife.domain.TaskInfo
-import com.example.organizzeyourlife.domain.singleton.UserSingleton
 import com.example.organizzeyourlife.implementation.TaskImplementations
 import com.example.organizzeyourlife.usecase.TaskUseCase
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class TaskViewModel : ViewModel() {
 

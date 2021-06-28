@@ -9,5 +9,6 @@ class TaskDataRepository(private val taskImplementations: TaskImplementations) {
     fun insertTask(task : TaskInfo) = taskImplementations.insertTaskApi(task)
     fun updateTask(task : TaskInfo) = taskImplementations.updateTaskApi(task)
     fun deleteTask(index : Int) = taskImplementations.deleteTaskApi(index)
+    fun tryConnectionApi() = taskImplementations.tryConnectionApi()
 
 }

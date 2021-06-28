@@ -4,9 +4,10 @@ import com.example.organizzeyourlife.domain.Task
 import com.example.organizzeyourlife.domain.TaskInfo
 
 
-interface TaskActions {
+interface TaskDataSource {
     fun getAllTask() : Task?
     fun updateTaskApi(task: TaskInfo) : Boolean
     fun deleteTaskApi(index: Int) : Boolean
     fun insertTaskApi(task: TaskInfo) : Boolean
+    fun tryConnectionApi() : Boolean
 }
