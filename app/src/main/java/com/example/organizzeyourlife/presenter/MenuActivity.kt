@@ -1,8 +1,7 @@
-package com.example.organizzeyourlife.view
+package com.example.organizzeyourlife.presenter
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Canvas
 import android.graphics.Color
@@ -19,10 +18,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.organizzeyourlife.R
 import com.example.organizzeyourlife.databinding.ActivityMenuBinding
-import com.example.organizzeyourlife.datasource.Task
-import com.example.organizzeyourlife.model.TaskInfo
-import com.example.organizzeyourlife.model.adapter.TaskAdapter
-import com.example.organizzeyourlife.viewmodel.TaskViewModel
+import com.example.organizzeyourlife.data.TaskListData
+import com.example.organizzeyourlife.domain.TaskInfo
+import com.example.organizzeyourlife.domain.adapter.TaskAdapter
+import com.example.organizzeyourlife.framework.viewmodel.TaskViewModel
 import es.dmoral.toasty.Toasty
 
 
@@ -42,7 +41,6 @@ class MenuActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
-        taskViewModel.init()
 
         initCallBack()
         initDados()
@@ -63,7 +61,7 @@ class MenuActivity : AppCompatActivity() {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 if (direction == ItemTouchHelper.RIGHT) {
-                    Task.deleteTask(viewHolder.adapterPosition)
+                    taskViewModel.deleteTask(viewHolder.adapterPosition)
                     Toasty.success(this@MenuActivity, "Tarefa Finalizada", Toast.LENGTH_SHORT, true).show()
                 } else if (direction == ItemTouchHelper.LEFT) {
                     AlertDialog.Builder(this@MenuActivity)
@@ -72,9 +70,8 @@ class MenuActivity : AppCompatActivity() {
                         .setMessage("Você tem certeza que deseja excluir essa tarefa?")
                         .setPositiveButton("Excluir"
                         ) { _, _ ->
-                            Task.deleteTask(viewHolder.adapterPosition)
-                            Toasty.info(this@MenuActivity, "Tarefa excluida", Toast.LENGTH_LONG)
-                                .show()
+                            taskViewModel.deleteTask(viewHolder.adapterPosition)
+                            Toasty.info(this@MenuActivity, "Tarefa excluida", Toast.LENGTH_LONG).show()
                             adapterTask.notifyDataSetChanged()
 
                             if(adapterTask.listTask.size == 0) binding.emptyState.llnEmptyState.visibility = View.VISIBLE
@@ -133,14 +130,18 @@ class MenuActivity : AppCompatActivity() {
         val itemTouchHelper = ItemTouchHelper(simpleCallBack)
         itemTouchHelper.attachToRecyclerView(binding.recyclerHoje)
 
-        taskViewModel.listTask.observe(this, Observer {
+        taskViewModel.listTask.observe(this, {
             if (it?.taskInfo.isNullOrEmpty() || it == null) {
                 binding.emptyState.llnEmptyState.visibility = View.VISIBLE
             } else {
                 binding.emptyState.llnEmptyState.visibility = View.GONE
 
-                Task.setList(it.taskInfo)
-                adapterTask.updateList(Task.getList())
+                adapterTask.updateList(TaskListData.getList())
+            }
+        })
+        taskViewModel.statusDeleteTask.observe(this, {
+            if(it == true){
+                adapterTask.notifyDataSetChanged()
             }
         })
     }
@@ -167,7 +168,7 @@ class MenuActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        taskViewModel.getAllTasks()
+        taskViewModel.getAllTask()
     }
 
     companion object{

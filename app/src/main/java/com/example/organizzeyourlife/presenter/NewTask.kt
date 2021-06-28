@@ -1,4 +1,4 @@
-package com.example.organizzeyourlife.view
+package com.example.organizzeyourlife.presenter
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
@@ -8,13 +8,13 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.organizzeyourlife.databinding.ActivityNewTaskBinding
-import com.example.organizzeyourlife.datasource.Task
+import com.example.organizzeyourlife.data.TaskListData
 import com.example.organizzeyourlife.extensions.formatStringDateShow
 import com.example.organizzeyourlife.extensions.formatStringTimeShow
-import com.example.organizzeyourlife.model.TaskInfo
-import com.example.organizzeyourlife.model.singleton.UserSingleton
-import com.example.organizzeyourlife.view.MenuActivity.Companion.TASK_ID
-import com.example.organizzeyourlife.viewmodel.TaskViewModel
+import com.example.organizzeyourlife.domain.TaskInfo
+import com.example.organizzeyourlife.domain.singleton.UserSingleton
+import com.example.organizzeyourlife.presenter.MenuActivity.Companion.TASK_ID
+import com.example.organizzeyourlife.framework.viewmodel.TaskViewModel
 import java.util.*
 
 class NewTask : AppCompatActivity() {
@@ -32,7 +32,6 @@ class NewTask : AppCompatActivity() {
         setContentView(binding.root)
 
         taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
-        taskViewModel.init()
 
         if(intent.hasExtra(TASK_ID)){
             fillData(intent.getIntExtra(TASK_ID, 0))
@@ -44,12 +43,16 @@ class NewTask : AppCompatActivity() {
     }
 
     private fun fillData(index : Int) {
-        task = Task.findById(index)
+        task = TaskListData.findById(index)
 
         binding.edtTitulo.setText(task!!.task)
         binding.edtDescricao.setText(task!!.description)
         binding.edtTime.setText(task!!.time?.formatStringTimeShow())
         binding.edtData.setText(task!!.date?.formatStringDateShow())
+
+        binding.toolbar.title = "Editar tarefa"
+        binding.btnNewTask.text = "Editar"
+        binding.txtCriandoTask.text = "Editando"
     }
 
     private fun initDados() {
@@ -119,7 +122,8 @@ class NewTask : AppCompatActivity() {
                 UserSingleton.user!!.idUser
             )
 
-            Task.addTask(taskCreated)
+            if(idTask != null) taskViewModel.updateTask(taskCreated)
+            else taskViewModel.insertTask(taskCreated)
             blockInterface(false)
         }
         binding.toolbar.setNavigationOnClickListener {

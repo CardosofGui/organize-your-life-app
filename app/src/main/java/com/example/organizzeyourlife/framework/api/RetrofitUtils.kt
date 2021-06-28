@@ -1,4 +1,4 @@
-package com.example.organizzeyourlife.api
+package com.example.organizzeyourlife.framework.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

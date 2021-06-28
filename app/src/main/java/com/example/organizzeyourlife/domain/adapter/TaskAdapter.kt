@@ -1,18 +1,15 @@
-package com.example.organizzeyourlife.model.adapter
+package com.example.organizzeyourlife.domain.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.organizzeyourlife.R
 import com.example.organizzeyourlife.databinding.CardviewTaskBinding
 import com.example.organizzeyourlife.extensions.formatStringDateShow
 import com.example.organizzeyourlife.extensions.formatStringTimeShow
-import com.example.organizzeyourlife.model.Task
-import com.example.organizzeyourlife.model.TaskInfo
+import com.example.organizzeyourlife.domain.TaskInfo
 import java.util.*
 import kotlin.collections.ArrayList
 

@@ -1,20 +1,13 @@
-package com.example.organizzeyourlife.view
+package com.example.organizzeyourlife.presenter
 
-import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.organizzeyourlife.databinding.ActivityRegisterBinding
-import com.example.organizzeyourlife.model.User
-import com.example.organizzeyourlife.model.singleton.UserSingleton
-import com.example.organizzeyourlife.model.singleton.UserSingleton.Companion.SHARED_PREFERENCES_LOGIN
-import com.example.organizzeyourlife.viewmodel.RegisterViewModel
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import com.example.organizzeyourlife.framework.viewmodel.RegisterViewModel
 
 class RegisterActivity : AppCompatActivity() {
 

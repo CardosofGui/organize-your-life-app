@@ -11,19 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OrganizzeYourLife">
-        <activity android:name=".SplashScreen">
+        <activity android:name=".presenter.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.NewTask" />
+        <activity android:name=".presenter.NewTask" />
         <activity
-            android:name=".view.MenuActivity"
+            android:name=".presenter.MenuActivity"
             android:label="@string/title_activity_menu" />
-        <activity android:name=".view.LoginActivity" />
-        <activity android:name=".view.RegisterActivity">
+        <activity android:name=".presenter.LoginActivity" />
+        <activity android:name=".presenter.RegisterActivity">
 
         </activity>
 

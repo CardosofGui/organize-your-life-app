@@ -1,4 +1,4 @@
-package com.example.organizzeyourlife
+package com.example.organizzeyourlife.presenter
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -7,19 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
-import com.example.organizzeyourlife.api.Endpoint
-import com.example.organizzeyourlife.api.RetrofitUtils.Companion.getRetrofitInstance
 import com.example.organizzeyourlife.databinding.ActivitySplashScreenBinding
-import com.example.organizzeyourlife.model.User
-import com.example.organizzeyourlife.model.singleton.UserSingleton
-import com.example.organizzeyourlife.view.MenuActivity
-import com.example.organizzeyourlife.view.RegisterActivity
-import com.example.organizzeyourlife.viewmodel.SplashViewModel
+import com.example.organizzeyourlife.domain.User
+import com.example.organizzeyourlife.domain.singleton.UserSingleton
+import com.example.organizzeyourlife.framework.viewmodel.SplashViewModel
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class SplashScreen : AppCompatActivity() {
 

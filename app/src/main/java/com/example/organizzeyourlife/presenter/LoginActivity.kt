@@ -1,4 +1,4 @@
-package com.example.organizzeyourlife.view
+package com.example.organizzeyourlife.presenter
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -10,10 +10,10 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.organizzeyourlife.databinding.ActivityLoginBinding
-import com.example.organizzeyourlife.model.singleton.UserSingleton.Companion.SHARED_PREFERENCES_LOGIN
-import com.example.organizzeyourlife.model.singleton.UserSingleton.Companion.SHARED_PREFERENCES_NAME
-import com.example.organizzeyourlife.model.singleton.UserSingleton.Companion.user
-import com.example.organizzeyourlife.viewmodel.LoginViewModel
+import com.example.organizzeyourlife.domain.singleton.UserSingleton.Companion.SHARED_PREFERENCES_LOGIN
+import com.example.organizzeyourlife.domain.singleton.UserSingleton.Companion.SHARED_PREFERENCES_NAME
+import com.example.organizzeyourlife.domain.singleton.UserSingleton.Companion.user
+import com.example.organizzeyourlife.framework.viewmodel.LoginViewModel
 import com.google.gson.Gson
 
 class LoginActivity : AppCompatActivity() {

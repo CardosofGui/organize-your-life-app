@@ -1,6 +1,6 @@
-package com.example.organizzeyourlife.model.singleton
+package com.example.organizzeyourlife.domain.singleton
 
-import com.example.organizzeyourlife.model.User
+import com.example.organizzeyourlife.domain.User
 
 class UserSingleton {
     companion object{

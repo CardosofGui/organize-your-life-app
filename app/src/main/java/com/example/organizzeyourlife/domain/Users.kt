@@ -1,4 +1,4 @@
-package com.example.organizzeyourlife.model
+package com.example.organizzeyourlife.domain
 
 class Users(
     val status : String,

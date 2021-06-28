@@ -1,12 +1,12 @@
-package com.example.organizzeyourlife.viewmodel
+package com.example.organizzeyourlife.framework.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.organizzeyourlife.api.Endpoint
-import com.example.organizzeyourlife.api.RetrofitUtils
-import com.example.organizzeyourlife.model.User
-import com.example.organizzeyourlife.model.Users
+import com.example.organizzeyourlife.framework.api.Endpoint
+import com.example.organizzeyourlife.framework.api.RetrofitUtils
+import com.example.organizzeyourlife.domain.User
+import com.example.organizzeyourlife.domain.Users
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

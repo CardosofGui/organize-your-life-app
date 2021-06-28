@@ -1,6 +1,5 @@
-package com.example.organizzeyourlife.model
+package com.example.organizzeyourlife.domain
 
-import java.util.*
 import kotlin.collections.ArrayList
 
 data class Task(

@@ -1,8 +1,7 @@
-package com.example.organizzeyourlife.api
+package com.example.organizzeyourlife.framework.api
 
-import com.example.organizzeyourlife.model.Task
-import com.example.organizzeyourlife.model.User
-import com.example.organizzeyourlife.model.Users
+import com.example.organizzeyourlife.domain.Task
+import com.example.organizzeyourlife.domain.Users
 import retrofit2.Call
 import retrofit2.http.*
 
